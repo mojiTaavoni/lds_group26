@@ -12,7 +12,7 @@ DROP TABLE [group26].[vendor]
 GO
 
 CREATE TABLE [group26].[vendor](
-	[vendor_code] [int] NULL,
+	[vendor_code] [int] Not NULL,
 	[name] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
