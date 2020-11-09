@@ -15,7 +15,7 @@ CREATE TABLE [group26].[vendor](
 	[vendor_code] [int] NOT NULL,
 	[name] [varchar](50) NULL,
 	CONSTRAINT PK_vendor_code PRIMARY KEY (vendor_code)
-) ON [PRIMARY]
+);
 GO
 
 /****** Object:  Table [group26].[time]  ******/
@@ -32,7 +32,7 @@ CREATE TABLE [group26].[time](
 	[quarter] [int] NULL,
 	[day_of_week] [int] NULL,
 	CONSTRAINT PK_time_id PRIMARY KEY (time_id)
-) ON [PRIMARY]
+);
 GO
 
 /****** Object:  Table [group26].[ram_sales]  ******/
@@ -47,7 +47,10 @@ CREATE TABLE [group26].[ram_sales](
   [vendor_code] [int] NULL,
   [sales_usd] [varchar](50) NULL,
   [sales_currency] [varchar](50) NULL,
-  CONSTRAINT PK_ram_code PRIMARY KEY (ram_code)
+  CONSTRAINT PK_ram_code PRIMARY KEY (ram_code),
+  CONSTRAINT FK_vendor_code FOREIGN KEY (vendor_code) REFERENCES GROUP26.vendor(vendor_code),
+  CONSTRAINT FK_time_code FOREIGN KEY (time_code) REFERENCES GROUP26.TIME(time_id),
+  CONSTRAINT FK_geo_code FOREIGN KEY (geo_code) REFERENCES GROUP26.geograpgy(geo_code)
 );
 GO
 
@@ -64,7 +67,7 @@ CREATE TABLE [group26].[ram_product](
 	[memory_type] [varchar](50) NULL,
 	[clock] [int] NULL,
 	CONSTRAINT PK_ram_code PRIMARY KEY (ram_code)
-) ON [PRIMARY]
+);
 GO
 
 /****** Object:  Table [group26].[gpu_sales]  ******/
@@ -79,8 +82,11 @@ CREATE TABLE [group26].[gpu_sales](
 	[vendor_code] [int] NULL,
 	[sales_usd] [varchar](50) NULL,
 	[sales_currency] [varchar](50) NULL,
-	CONSTRAINT PK_gpu_code PRIMARY KEY (gpu_code)
-) ON [PRIMARY]
+	CONSTRAINT PK_gpu_code PRIMARY KEY (gpu_code),
+	CONSTRAINT FK_vendor_code FOREIGN KEY (vendor_code) REFERENCES GROUP26.vendor(vendor_code),
+	CONSTRAINT FK_time_code FOREIGN KEY (time_code) REFERENCES GROUP26.TIME(time_id),
+	CONSTRAINT FK_geo_code FOREIGN KEY (geo_code) REFERENCES GROUP26.geograpgy(geo_code)
+);
 GO
 
 /****** Object:  Table [group26].[gpu_product]  ******/
@@ -96,7 +102,7 @@ CREATE TABLE [group26].[gpu_product](
 	[memory] [int] NULL,
 	[memory_type] [varchar](50) NULL,
 	CONSTRAINT PK_gpu_code PRIMARY KEY (gpu_code)
-) ON [PRIMARY]
+);
 GO
 
 /****** Object:  Table [group26].[geograpgy]  ******/
@@ -111,7 +117,7 @@ CREATE TABLE [group26].[geograpgy](
 	[region] [varchar](50) NULL,
 	[currency] [varchar](50) NULL,
 	CONSTRAINT PK_geo_code PRIMARY KEY (geo_code)
-) ON [PRIMARY]
+);
 GO
 
 /****** Object:  Table [group26].[cpu_sales]  ******/
@@ -126,8 +132,11 @@ CREATE TABLE [group26].[cpu_sales](
 	[vendor_code] [int] NULL,
 	[sales_usd] [varchar](50) NULL,
 	[sales_currency] [varchar](50) NULL,
-	CONSTRAINT PK_cpu_code PRIMARY KEY (cpu_code)
-) ON [PRIMARY]
+	CONSTRAINT PK_cpu_code PRIMARY KEY (cpu_code),
+	CONSTRAINT FK_vendor_code FOREIGN KEY (vendor_code) REFERENCES GROUP26.vendor(vendor_code),
+	CONSTRAINT FK_time_code FOREIGN KEY (time_code) REFERENCES GROUP26.TIME(time_id),
+	CONSTRAINT FK_geo_code FOREIGN KEY (geo_code) REFERENCES GROUP26.geograpgy(geo_code)
+);
 GO
 
 /****** Object:  Table [group26].[cpu_product]  ******/
@@ -143,6 +152,6 @@ CREATE TABLE [group26].[cpu_product](
 	[n_cores] [int] NULL,
 	[socket] [varchar](50) NULL,
 	CONSTRAINT PK_cpu_code PRIMARY KEY (cpu_code)
-) ON[primary]
+);
 GO
 
