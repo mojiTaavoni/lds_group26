@@ -12,8 +12,9 @@ DROP TABLE [group26].[vendor]
 GO
 
 CREATE TABLE [group26].[vendor](
-	[vendor_code] [int] Not NULL,
-	[name] [varchar](50) NULL
+	[vendor_code] [int] NOT NULL,
+	[name] [varchar](50) NULL,
+	CONSTRAINT PK_vendor_code PRIMARY KEY (vendor_code)
 ) ON [PRIMARY]
 GO
 
@@ -23,17 +24,15 @@ DROP TABLE [group26].[time]
 GO
 
 CREATE TABLE [group26].[time](
-	[time_id] [int] NULL,
+	[time_id] [int] NOT NULL,
 	[year] [int] NULL,
 	[month] [int] NULL,
 	[day] [int] NULL,
 	[week] [int] NULL,
 	[quarter] [int] NULL,
-	[day_of_week] [int] NULL
+	[day_of_week] [int] NULL,
+	CONSTRAINT PK_time_id PRIMARY KEY (time_id)
 ) ON [PRIMARY]
-GO
-
-USE [Group26HWMart]
 GO
 
 /****** Object:  Table [group26].[ram_sales]  ******/
@@ -42,16 +41,14 @@ DROP TABLE [group26].[ram_sales]
 GO
 
 CREATE TABLE [group26].[ram_sales](
-	[ram_code] [int] NULL,
-	[time_code] [int] NULL,
-	[geo_code] [int] NULL,
-	[vendor_code] [int] NULL,
-	[sales_usd] [varchar](50) NULL,
-	[sales_currency] [varchar](50) NULL
-) ON [PRIMARY]
-GO
-
-USE [Group26HWMart]
+  [ram_code] [int] NOT NULL,
+  [time_code] [int] NULL,
+  [geo_code] [int] NULL,
+  [vendor_code] [int] NULL,
+  [sales_usd] [varchar](50) NULL,
+  [sales_currency] [varchar](50) NULL,
+  CONSTRAINT PK_ram_code PRIMARY KEY (ram_code)
+);
 GO
 
 /****** Object:  Table [group26].[ram_product]  ******/
@@ -60,16 +57,14 @@ DROP TABLE [group26].[ram_product]
 GO
 
 CREATE TABLE [group26].[ram_product](
-	[ram_code] [int] NULL,
+	[ram_code] [int] NOT NULL,
 	[brand] [varchar](50) NULL,
 	[name] [varchar](50) NULL,
 	[memory] [int] NULL,
 	[memory_type] [varchar](50) NULL,
-	[clock] [int] NULL
+	[clock] [int] NULL,
+	CONSTRAINT PK_ram_code PRIMARY KEY (ram_code)
 ) ON [PRIMARY]
-GO
-
-USE [Group26HWMart]
 GO
 
 /****** Object:  Table [group26].[gpu_sales]  ******/
@@ -78,16 +73,14 @@ DROP TABLE [group26].[gpu_sales]
 GO
 
 CREATE TABLE [group26].[gpu_sales](
-	[gpu_code] [int] NULL,
+	[gpu_code] [int] NOT NULL,
 	[time_code] [int] NULL,
 	[geo_code] [int] NULL,
 	[vendor_code] [int] NULL,
 	[sales_usd] [varchar](50) NULL,
-	[sales_currency] [varchar](50) NULL
+	[sales_currency] [varchar](50) NULL,
+	CONSTRAINT PK_gpu_code PRIMARY KEY (gpu_code)
 ) ON [PRIMARY]
-GO
-
-USE [Group26HWMart]
 GO
 
 /****** Object:  Table [group26].[gpu_product]  ******/
@@ -96,16 +89,14 @@ DROP TABLE [group26].[gpu_product]
 GO
 
 CREATE TABLE [group26].[gpu_product](
-	[gpu_code] [int] NULL,
+	[gpu_code] [int] NOT NULL,
 	[processor] [varchar](50) NULL,
 	[processor_manufacture] [varchar](50) NULL,
 	[brand] [varchar](50) NULL,
 	[memory] [int] NULL,
-	[memory_type] [varchar](50) NULL
+	[memory_type] [varchar](50) NULL,
+	CONSTRAINT PK_gpu_code PRIMARY KEY (gpu_code)
 ) ON [PRIMARY]
-GO
-
-USE [Group26HWMart]
 GO
 
 /****** Object:  Table [group26].[geograpgy]  ******/
@@ -114,15 +105,13 @@ DROP TABLE [group26].[geograpgy]
 GO
 
 CREATE TABLE [group26].[geograpgy](
-	[geo_code] [int] NULL,
+	[geo_code] [int] NOT NULL,
 	[continent] [varchar](50) NULL,
 	[country] [varchar](50) NULL,
 	[region] [varchar](50) NULL,
-	[currency] [varchar](50) NULL
+	[currency] [varchar](50) NULL,
+	CONSTRAINT PK_geo_code PRIMARY KEY (geo_code)
 ) ON [PRIMARY]
-GO
-
-USE [Group26HWMart]
 GO
 
 /****** Object:  Table [group26].[cpu_sales]  ******/
@@ -131,16 +120,14 @@ DROP TABLE [group26].[cpu_sales]
 GO
 
 CREATE TABLE [group26].[cpu_sales](
-	[cpu_code] [int] NULL,
+	[cpu_code] [int] NOT NULL,
 	[time_code] [int] NULL,
 	[geo_code] [int] NULL,
 	[vendor_code] [int] NULL,
 	[sales_usd] [varchar](50) NULL,
-	[sales_currency] [varchar](50) NULL
+	[sales_currency] [varchar](50) NULL,
+	CONSTRAINT PK_cpu_code PRIMARY KEY (cpu_code)
 ) ON [PRIMARY]
-GO
-
-USE [Group26HWMart]
 GO
 
 /****** Object:  Table [group26].[cpu_product]  ******/
@@ -149,12 +136,13 @@ DROP TABLE [group26].[cpu_product]
 GO
 
 CREATE TABLE [group26].[cpu_product](
-	[cpu_code] [int] NULL,
+	[cpu_code] [int] NOT NULL,
 	[brand] [varchar](50) NULL,
 	[series] [varchar](50) NULL,
 	[name] [varchar](50) NULL,
 	[n_cores] [int] NULL,
-	[socket] [varchar](50) NULL
+	[socket] [varchar](50) NULL,
+	CONSTRAINT PK_cpu_code PRIMARY KEY (cpu_code)
 ) ON[primary]
 GO
 
